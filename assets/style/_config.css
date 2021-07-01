@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    list-style: none;
+    font-weight: normal;
+    font-family: arial;
+    /* font-family: bebas kai; */
+}
+
+:root {
+    --side-padding-l: 6vw;
+    --side-padding-s: 7vh;
+    --primary-bg: #007551;
+    --secondary-bg: #064834;
+}

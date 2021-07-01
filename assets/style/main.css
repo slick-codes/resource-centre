@@ -1,0 +1,19 @@
+@import url(nav.css);
+
+.showcase {
+    height: 25em;
+    background-image: url(../images/bg.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+.showcase:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-bg);
+    mix-blend-mode: exclusion;
+    /* opacity: 0.5; */
+}
