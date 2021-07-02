@@ -1,19 +1,15 @@
-@import url(_config.css);
-
 /* Header Section */
 
 .nav {
     padding: 1em var(--side-padding-s);
-    background: white;
     display: flex;
     box-shadow: 0px 0px 4px 0px #000000;
     position: sticky;
     background: inherit;
     z-index: 44;
+    /* mix-blend-mode: overlay; */
 }
-body {
-    background: rgb(253, 253, 253);
-}
+
 .nav__container {
     display: flex;
     align-items: center;
@@ -31,15 +27,35 @@ body {
     height: 100vh;
     top: 0;
     left: 0;
-    background: rgba(27, 27, 27, 0.719);
+    position: fixed;
+    background: white;
+    pointer-events: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 0;
+    mix-blend-mode: overlay;
+    backdrop-filter: blur(4em);
+}
+.txt_cont {
+    transform: rotate(90deg);
+    pointer-events: none;
+}
+.nav__link-overlay h1 {
+    font-size: 6em;
+    color: rgb(7, 172, 1);
     position: absolute;
-    display: none;
+    z-index: 444;
 }
 .nav.open .nav__link-overlay {
-    display: block;
+    display: flex;
+    opacity: 0.5;
+    pointer-events: auto;
+    transition: opacity 0.3s;
 }
 .nav__link-container {
-    position: absolute;
+    position: fixed;
+    /* opacity: 0; */
     height: 100vh;
     width: 70%;
     background: var(--primary-bg);
@@ -57,23 +73,27 @@ body {
     box-shadow: -6px 0px 20px 0px #00000073;
     /* text-transform: uppercase; */
     font-size: 14px;
+    background-image: var(--noise);
 }
 
 .nav__icon-container {
     /* position: absolute; */
     /* bottom: 0; */
     padding: 2em 0;
-    padding-left: var(--side-padding-l);
+    padding-left: var(--side-padding-s);
     background: var(--secondary);
     width: 100%;
     display: flex;
-    justify-content: space-around;
     padding-right: 5em;
 }
 .nav__icon-container a {
     color: white;
     text-decoration: none;
     font-size: 1.3em;
+    padding: 1em;
+}
+.nav__icon-container a:first-child {
+    padding-left: 0;
 }
 
 .nav.open .nav__link-container {
@@ -86,10 +106,11 @@ body {
 }
 .nav__link-container li:hover {
     background: var(--secondary-bg);
+    background-image: var(--noise);
 }
 .nav__link-container li a {
     font-weight: normal;
-    color: rgb(255, 217, 0);
+    color: white;
     text-decoration: none;
     width: 100%;
 }
@@ -110,15 +131,15 @@ body {
 }
 .navbar {
     position: relative;
-    padding: 0.07em;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bolder;
+    font-family: arial;
 }
 .nav.open .navbar {
-    color: rgb(222, 238, 5);
+    color: var(--primary-bg);
 }
 .nav__navbar-btn-container::before {
     content: "|";
@@ -126,6 +147,7 @@ body {
     height: 100%;
     color: inherit;
     display: flex;
+    font-family: inherit;
     transform: translatey(0.2em);
     justify-content: center;
     align-items: center;
@@ -188,6 +210,9 @@ body {
     }
     .nav__more-container li:hover a {
         color: white;
+    }
+    .nav__more-container li a:active {
+        text-decoration: underline;
     }
 
     .nav__more-container:before {
