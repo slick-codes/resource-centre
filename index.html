@@ -11,53 +11,60 @@
 </head>
 
 <body>
-    <header>
-        <nav class="nav">
-            <div class="nav__container">
-                <div class="nav__logo-container">
-                    <img src="assets/images/logo.png" alt="" srcset="">
+    <!-- Navigation Start -->
+    <nav class="nav">
+        <div class="nav__container">
+            <div class="nav__logo-container">
+                <img src="assets/images/logo.png" alt="" srcset="">
+            </div>
+            <div class="nav__link-overlay">
+                <div class="txt_cont">
+                    <h1>HOME</h1>
                 </div>
-                <div class="nav__link-overlay">
-                    <div class="txt_cont">
-                        <h1>HOME</h1>
+            </div>
+            <div class="nav__link-container">
+                <li> <a href="#">Home</a></li>
+                <li> <a href="#">Blog</a></li>
+                <li> <a href="#">Our Events</a></li>
+                <li> <a href="#">Contact US</a></li>
+                <li> <a href="#">About</a> </li>
+                <div class="morenav__container">
+                    <li class="more__btn"><a href="#">More <i class="fa fa-caret-down"></i> </a></li>
+                    <div class="nav__more-container">
+                        <li> <a href="#">Photo Gallery</a> </li>
+                        <li> <a href="#">Donate</a> </li>
+                        <li> <a href="#">Send Us a Message</a></li>
                     </div>
                 </div>
-                <div class="nav__link-container">
-                    <li> <a href="#">Home</a></li>
-                    <li> <a href="#">Blog</a></li>
-                    <li> <a href="#">Our Events</a></li>
-                    <li> <a href="#">Contact US</a></li>
-                    <li> <a href="#">About</a> </li>
-                    <div class="morenav__container">
-                        <li class="more__btn"><a href="#">More <i class="fa fa-caret-down"></i> </a></li>
-                        <div class="nav__more-container">
-                            <li> <a href="#">Photo Gallery</a> </li>
-                            <li> <a href="#">Donate</a> </li>
-                            <li> <a href="#">Send Us a Message</a></li>
-                        </div>
-                    </div>
-                    <div class="nav__icon-container">
-                        <a href="#"> <i class="fa fa-facebook"></i> </a>
-                        <a href="#"> <i class="fa fa-twitter"></i> </a>
-                        <a href="#"> <i class="fa fa-instagram"></i> </a>
-                    </div>
-                </div>
-
-
-                <div class="nav__navbar-btn-container">
-                    <div class="navbar">|</div>
+                <div class="nav__icon-container">
+                    <a href="#"> <i class="fa fa-facebook"></i> </a>
+                    <a href="#"> <i class="fa fa-twitter"></i> </a>
+                    <a href="#"> <i class="fa fa-instagram"></i> </a>
                 </div>
             </div>
 
-        </nav>
+
+            <div class="nav__navbar-btn-container">
+                <div class="navbar">|</div>
+            </div>
+        </div>
+
+    </nav>
+    <!-- Navigation End -->
+    <header>
+
         <div class="showcase">
             <img src="assets/images/showcase_img1.png" alt="">
+            <a href="#about__section" class="showcase__hover-button">
+                <i class="fa fa-arrow-down"></i>
+                <span>Go Down</span>
+            </a>
         </div>
     </header>
     <main>
         <div class="aboutus__container">
             <div class="aboutus__header-text">
-                <div class="aboutus__inner-container">
+                <div class="aboutus__inner-container" id="about__section">
                     <h2>Youth &nbsp; Resource</h2>
                     <h1>Centre</h1>
                 </div>
@@ -71,7 +78,23 @@
                 </p>
                 <div class="aboutus__button-container">
                     <button>Learn More</button>
-                    <button>Donate</button>
+                    <button>Donate book</button>
+                </div>
+            </div>
+        </div>
+        <div class="mission">
+            <h1>OUR MISSION</h1>
+            <div class="mission__container">
+                <div class="mission__img-container">
+                    <img src="assets/images/mission.png" alt="">
+                </div>
+                <div class="mission__para-container">
+                    <p>
+                        Providing our youths a resource haven and conducive enviroment where they could study and
+                        receive
+                        career counseling, personal metoring, life-skill training and personal development
+                        opportunities.
+                    </p>
                 </div>
             </div>
         </div>
@@ -81,20 +104,17 @@
 
         const navBtn = document.querySelector('.navbar')
         const navigation = document.querySelector('.nav')
+        const menuOverlay = document.querySelector('.nav__link-overlay')
+
         navBtn.onclick = function () {
             navigation.classList.toggle('open')
         }
-
-        const menuOverlay = document.querySelector('.nav__link-overlay')
-        console.log(menuOverlay)
-
-
-
-        menuOverlay.addEventListener('click', function () {
+        menuOverlay.onclick = function () {
             event.stopImmediatePropagation()
-            event.stopPropagation()
             navigation.classList.remove('open')
-        }, true)
+        }
+
+
 
 
     </script>

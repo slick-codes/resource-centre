@@ -6,6 +6,7 @@
     list-style: none;
     font-weight: normal;
     font-family: _open sans;
+    scroll-behavior: smooth;
     /* font-family: bebas kai; */
 }
 /* Importing fonts */

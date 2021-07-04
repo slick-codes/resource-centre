@@ -3,11 +3,14 @@
 .nav {
     padding: 1em var(--side-padding-s);
     display: flex;
-    box-shadow: 0px 0px 4px 0px #000000;
+    /* box-shadow: 0px 0px 4px 0px #000000; */
     position: sticky;
-    background: inherit;
+    background: rgba(243, 243, 243, 0.952);
     z-index: 44;
     /* mix-blend-mode: overlay; */
+}
+.nav.open {
+    box-shadow: none;
 }
 
 .nav__container {
@@ -39,11 +42,16 @@
 }
 .txt_cont {
     transform: rotate(90deg);
+    position: absolute;
+    right: 2.4em;
     pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .nav__link-overlay h1 {
     font-size: 6em;
-    color: rgb(7, 172, 1);
+    color: #22795e;
     position: absolute;
     z-index: 444;
 }
@@ -65,6 +73,7 @@
     justify-content: flex-start;
     font-weight: normal;
     padding: 30% 0em;
+    padding-bottom: 0;
     top: 0;
     transform: translateX(-100%);
     transition: transform 0.2s;
@@ -74,12 +83,14 @@
     /* text-transform: uppercase; */
     font-size: 14px;
     background-image: var(--noise);
+    overflow: auto;
 }
 
 .nav__icon-container {
     /* position: absolute; */
     /* bottom: 0; */
     padding: 2em 0;
+    padding-bottom: 0;
     padding-left: var(--side-padding-s);
     background: var(--secondary);
     width: 100%;
@@ -114,6 +125,9 @@
     text-decoration: none;
     width: 100%;
 }
+.nav__link-container a:hover {
+    text-decoration: underline;
+}
 .nav__navbar-btn-container {
     padding: 1em;
     height: 1em;
@@ -137,14 +151,16 @@
     align-items: center;
     font-weight: bolder;
     font-family: arial;
+    background: black;
 }
 .nav.open .navbar {
     color: var(--primary-bg);
 }
 .nav__navbar-btn-container::before {
     content: "|";
-    position: relative;
-    height: 100%;
+    position: inherit;
+    height: inherit;
+    background: inherit;
     color: inherit;
     display: flex;
     font-family: inherit;
@@ -166,9 +182,13 @@
     }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 628px) {
+    .nav__link-overlay.open {
+        display: none;
+    }
     .nav__link-container {
         margin-left: auto;
+        overflow: none;
         display: flex;
         position: relative;
         height: auto;
@@ -179,10 +199,14 @@
         transform: translateX(0);
         box-shadow: 0 0 0;
         padding: 0;
+        overflow: initial;
     }
     .nav__link-container li a {
         color: black;
         font-size: 14px;
+    }
+    .nav__link-container li a:hover {
+        color: var(--primary-bg);
     }
     .nav__navbar-btn-container {
         display: none;
@@ -204,17 +228,22 @@
         display: none;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.342);
     }
+    .nav__more-container li {
+        position: relative;
+    }
+    .nav__more-container li:first-child {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+
+    .nav__more-container li:last-child {
+        border-bottom-right-radius: inherit;
+        border-bottom-left-radius: inherit;
+    }
     .nav__more-container li:hover {
         width: 100%;
         background: var(--primary-bg);
     }
-    .nav__more-container li:hover a {
-        color: white;
-    }
-    .nav__more-container li a:active {
-        text-decoration: underline;
-    }
-
     .nav__more-container:before {
         content: "";
         position: absolute;
@@ -225,16 +254,10 @@
         transform: rotate(45deg);
         border-radius: 0.2em;
         background: white;
-        z-index: -1;
-        box-shadow: inherit;
-    }
-    .morenav__container:hover .nav__more-container {
-        display: block;
-    }
-    .more__btn {
-        display: block;
     }
     .nav__more-container:after {
+        z-index: -1;
+        box-shadow: inherit;
         content: "";
         position: absolute;
         width: 1em;
@@ -244,6 +267,15 @@
         top: -0.3em;
         transform: rotate(45deg);
         border-radius: 0.2em;
+    }
+    .morenav__container:hover .nav__more-container {
+        display: block;
+    }
+    .nav__more-container li a:hover {
+        color: white;
+    }
+    .more__btn {
+        display: block;
     }
     .nav__icon-container {
         display: none;
